@@ -1,0 +1,9 @@
+name: TestSpigot
+version: 1.0
+description: Block Data on place checker
+main: com.djjewl.customgens.generators
+api-version: 1.18
+author: DjJewl
+commands:
+  addgen:
+
