@@ -27,11 +27,6 @@ public class generators extends JavaPlugin implements CommandExecutor {
     @Override
     public void onEnable() {
     	getServer().getPluginManager().registerEvents(new Genplace(), this);
-        config.addDefault("generator","cobble");
-        config.addDefault("generator.gen","coal");
-        config.addDefault("generator.time", "10");
-        config.addDefault("generator.name", "basic coal gen");
-        saveConfig();
     }
     // Fired when plugin is disabled
     @Override

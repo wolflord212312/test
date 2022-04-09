@@ -17,12 +17,6 @@ public class Genplace implements Listener{
     public void onPlayerJoin(PlayerJoinEvent event) {
     Player p = event.getPlayer();
     p.sendMessage("welcome!!");
-    System.out.println("welcome"+p);
-	ItemStack cobblestone =new ItemStack(Material.COBBLESTONE);
-    ItemMeta itemMeta = cobblestone.getItemMeta();
-    itemMeta.setDisplayName("Generator");
-	cobblestone.setItemMeta(itemMeta);
-	p.getInventory().addItem(cobblestone);
     }
     @SuppressWarnings("deprecation")
 	@EventHandler
