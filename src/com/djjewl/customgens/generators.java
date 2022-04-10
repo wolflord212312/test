@@ -18,7 +18,7 @@ public class generators extends JavaPlugin  {
     	customconfig.get().addDefault("settings.lore", "Igenz");
     	customconfig.get().addDefault("Generator.name", "&4Coal");
     	customconfig.get().addDefault("Generator.color", "RED");
-    	customconfig.get().addDefault("Generator.item",Material.COAL);
+    	customconfig.get().addDefault("Generator.item", Material.COAL);
     	customconfig.get().addDefault("Generator.time", 10);
     	customconfig.get().options().copyDefaults(true);
     	customconfig.save();
