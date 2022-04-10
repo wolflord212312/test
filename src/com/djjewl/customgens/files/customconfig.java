@@ -19,7 +19,7 @@ public class customconfig {
 				}
 				
 				catch(IOException e) {
-					
+					System.out.println("Could create File");
 				}
 			}
 			customFile = YamlConfiguration.loadConfiguration(file);
