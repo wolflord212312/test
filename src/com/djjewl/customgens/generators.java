@@ -17,18 +17,26 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.djjewl.customgens.files.customconfig;
+
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 public class generators extends JavaPlugin implements CommandExecutor {
-	FileConfiguration config = getConfig();
-    // Fired when plugin is first enabled
+
     @Override
     public void onEnable() {
     	getServer().getPluginManager().registerEvents(new Genplace(), this);
+    	//setup config
+    	getConfig().options().copyDefaults();
+    	saveDefaultConfig();
+    	customconfig.setup();
+    	customconfig.get().addDefault("Generators",true );
+    	customconfig.get().options().copyDefaults(true);
+    	customconfig.save();
     }
-    // Fired when plugin is disabled
+
     @Override
     public void onDisable() {
     	
