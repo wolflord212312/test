@@ -16,13 +16,14 @@ public class generators extends JavaPlugin  {
     	customconfig.get().addDefault("Version", getDescription().getVersion());
     	customconfig.get().addDefault("settings.upgradable", true);
     	customconfig.get().addDefault("settings.lore", "Igenz");
+    	customconfig.get().addDefault("settings.color", "RED");
     	customconfig.get().addDefault("Generator.name", "&4Coal");
-    	customconfig.get().addDefault("Generator.color", "RED");
     	customconfig.get().addDefault("Generator.item", Material.COAL);
     	customconfig.get().addDefault("Generator.time", 10);
     	customconfig.get().options().copyDefaults(true);
     	customconfig.save();
     	getCommand("addgen").setExecutor(new addgen());
+    	getCommand("givegen").setExecutor(new givegen());
     }
 
     @Override

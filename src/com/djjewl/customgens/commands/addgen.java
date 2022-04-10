@@ -18,19 +18,23 @@ public class addgen implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (command.getName().equalsIgnoreCase("addgen")) {
-            	ArrayList<String> lore = new ArrayList<String>();
-            	Material m = Material.COBBLESTONE;
-            	ChatColor c = ChatColor.valueOf(customconfig.get().getString("Generator.color"));
-            	ItemStack cobblestone =new ItemStack(m);
-                ItemMeta itemMeta = cobblestone.getItemMeta();
-                itemMeta.setDisplayName(c +customconfig.get().getString("Generator.name")+" Generator");
-                lore.add(customconfig.get().getString("settings.lore"));
-                itemMeta.setLore(lore);
-            	cobblestone.setItemMeta(itemMeta);
-            	player.getInventory().addItem(cobblestone);}
+            	if(args.length  > 3){
+            		player.sendMessage("/addgen (BLOCK) (ITEM) (NAME)");
             	
+            		
+            	}
+            	else {
+            		Material b= Material.getMaterial(args[0]);
+            		Material i= Material.getMaterial(args[1]);
+            		String n = args[2];
+            		player.sendMessage("added: "+n+"block"+b+"item"+i);
+            		
+            	}
+            		
             }    
         
-    	return true;
+           
     }
+        return true;
+  }
 }
