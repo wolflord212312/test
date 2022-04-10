@@ -9,7 +9,6 @@ import java.io.IOException;
 public class customconfig {
 	private static File file;
 	private static FileConfiguration customFile;
-	
 	public static void setup(){
 		file = new File(Bukkit.getServer().getPluginManager().getPlugin("TestSpigot").getDataFolder(), "BConfig.yml");
 		if(!file.exists()) {
@@ -33,13 +32,12 @@ public class customconfig {
 		try {
 			customFile.save(file);
 		} catch (IOException e) {
-			System.out.println("Could Not save File");
+
 		}
 	}
 	
-	public static void reload() {
+	public static void reload() throws IOException {
 		customFile = YamlConfiguration.loadConfiguration(file);
-		
 	}
-	}
+}
 

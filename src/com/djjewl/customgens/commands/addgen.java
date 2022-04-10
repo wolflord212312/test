@@ -2,6 +2,7 @@ package com.djjewl.customgens.commands;
 
 import java.util.ArrayList;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,16 +20,16 @@ public class addgen implements CommandExecutor {
             if (command.getName().equalsIgnoreCase("addgen")) {
             	ArrayList<String> lore = new ArrayList<String>();
             	Material m = Material.COBBLESTONE;
+            	ChatColor c = ChatColor.valueOf(customconfig.get().getString("Generator.color"));
             	ItemStack cobblestone =new ItemStack(m);
                 ItemMeta itemMeta = cobblestone.getItemMeta();
-                itemMeta.setDisplayName(customconfig.get().getString("Generator.name")+" Generator");
+                itemMeta.setDisplayName(c +customconfig.get().getString("Generator.name")+" Generator");
                 lore.add(customconfig.get().getString("settings.lore"));
                 itemMeta.setLore(lore);
             	cobblestone.setItemMeta(itemMeta);
             	player.getInventory().addItem(cobblestone);}
             	
             }    
-  
         
     	return true;
     }
