@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.djjewl.customgens.files.customconfig;
-import com.djjewl.customgens.commands.message;
+import com.djjewl.customgens.commands.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 public class generators extends JavaPlugin implements CommandExecutor {
@@ -19,40 +19,25 @@ public class generators extends JavaPlugin implements CommandExecutor {
     @Override
     public void onEnable() {
     	getServer().getPluginManager().registerEvents(new Genplace(), this);
-    	//setup config
     	getConfig().options().copyDefaults();
     	saveDefaultConfig();
     	customconfig.setup();
-    	customconfig.get().addDefault("Bootmsg", "enabled");
+    	customconfig.get().addDefault("Version", getDescription().getVersion());
+    	customconfig.get().addDefault("settings.upgradable", true);
+    	customconfig.get().addDefault("settings.lore", "Igenz");
+    	customconfig.get().addDefault("Generator.name", "Coal");
+    	customconfig.get().addDefault("Generator.item",Material.COAL);
+    	customconfig.get().addDefault("Generator.time", 10);
     	customconfig.get().options().copyDefaults(true);
     	customconfig.save();
-    	
-    	getCommand("message").setExecutor(new message());
+    	getCommand("addgen").setExecutor(new addgen());
     }
 
     @Override
     public void onDisable() {
     	
     }
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            if (command.getName().equalsIgnoreCase("addgen")) {
-            	ArrayList<String> lore = new ArrayList<String>();
-            	Material m = Material.COBBLESTONE;
-            	ItemStack cobblestone =new ItemStack(m);
-                ItemMeta itemMeta = cobblestone.getItemMeta();
-                itemMeta.setDisplayName(m.toString()+" Generator");
-                lore.add("IGENZ");
-                itemMeta.setLore(lore);
-            	cobblestone.setItemMeta(itemMeta);
-            	player.getInventory().addItem(cobblestone);}
-            	
-            }    
-  
-        
-    	return true;
-    }
+
 }		
 
 

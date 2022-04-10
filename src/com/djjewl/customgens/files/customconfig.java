@@ -11,7 +11,7 @@ public class customconfig {
 	private static FileConfiguration customFile;
 	
 	public static void setup(){
-		file = new File(Bukkit.getServer().getPluginManager().getPlugin("TestSpigot").getDataFolder(), "Config.yml");
+		file = new File(Bukkit.getServer().getPluginManager().getPlugin("TestSpigot").getDataFolder(), "BConfig.yml");
 		if(!file.exists()) {
 			
 				try {
